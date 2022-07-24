@@ -21,5 +21,7 @@ namespace BakendProject.DAL
         public DbSet<Bio> Bios{ get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<ModalProduct> modalProducts{ get; set; }
+        public DbSet<Blog>  Blogs{ get; set; }
+        public DbSet<Subscribe> subscribes { get; set; }
     }
 }

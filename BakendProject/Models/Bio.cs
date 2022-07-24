@@ -8,5 +8,8 @@
         public string Location{ get; set; }
         public string EmailAdress{ get; set; }
         public string OfisPhone{ get; set; }
+        public string AuthorName { get; set; }
+        public string AuthorDesc { get; set; }
+        public string AuthorImageUrl { get; set; }
     }
 }

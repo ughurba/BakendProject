@@ -427,7 +427,7 @@
                                     {
                                        @foreach (var img in item.ProductImages)
                                       {
-                                                                              <div class="single-products-image">
+                                               <div class="single-products-image">
                                         <a href="#">
                                      
                                             <img src="~/images/@img.ImageUrl" alt="products">
@@ -566,11 +566,11 @@
                             if (item.SpeacialCategory)
                             {
                                   <li class="nav-item" role="presentation">
-                                <a class="" id="computer-tab" data-toggle="tab" href="#computer" role="tab" aria-controls="computer" aria-selected="true">@item.Name</a>
+                                <a class=""  id="@item.Name" data-toggle="tab" href="#@item.Name" role="tab" aria-controls="@item.Name" aria-selected="true">@item.Name</a>
                                 </li>
                             }
-                          
-                        }
+                          }
+                        
                          
                            
                         </ul>
@@ -578,18 +578,23 @@
                 </div>
             </div> <!-- row -->
             <div class="tab-content">
-                <div class="tab-pane fade show active" id="computer" role="tabpanel" aria-labelledby="computer-tab">
+                <div class="tab-pane fade show active" id="@Model.products.Find(p=>p.CategoryId == p.Category.Id && p.Category.SpeacialCategory).Category.Name" role="tabpanel" aria-labelledby="@Model.products.Find(p=>p.CategoryId == p.Category.Id && p.Category.SpeacialCategory).Category.Name">
                     <div class="product-items">
                         <div class="row product-active-2">
                         @foreach (var item in Model.products)
                        {
-                               <div class="col-lg-4">
+                              @foreach (var img in item.ProductImages)
+                             {
+                                if(item.CategoryId == item.Category.Id && item.Category.SpeacialCategory && img.IsMain)
+                                {
+                                    
+                                     <div class="col-lg-4">
                                 <div class="single-product product-list d-sm-flex flex-wrap align-items-center mt-30">
                                     <div class="product-image">
                                         <a href="single-product.html">
-                                            <img class="first-image" src="~/images/product/product-9.jpg" alt="product">
+                                            <img class="first-image" src="~/images/@img.ImageUrl" alt="product">
                                         </a>
-                                        <span class="discount-product">-12%</span>
+                                        <span class="discount-product">@item.DiscountPrice%</span>
                                     </div>
                                     <div class="product-content">
                                         <ul class="product-rating">
@@ -601,8 +606,8 @@
                                         </ul>
                                         <h4 class="product-title"><a href="single-product.html">New Balance Arishi Sport v1Couture Juicy eu</a></h4>
                                         <div class="product-price">
-                                            <span class="regular-price">€29.90</span>
-                                            <span class="price-sale">€26.90</span>
+                                            <span class="regular-price">€@item.Price</span>
+                                            <span class="price-sale">€@(item.Price - (item.Price * item.DiscountPrice / 100))</span>
                                         </div>
                                     </div>
                                 </div> <!-- single product -->
@@ -610,7 +615,7 @@
                                 <div class="single-product product-list d-sm-flex flex-wrap align-items-center mt-30">
                                     <div class="product-image">
                                         <a href="single-product.html">
-                                            <img class="first-image" src="~/images/product/product-12.jpg" alt="product">
+                                            <img class="first-image" src="~/images/@img.ImageUrl" alt="product">
                                         </a>
                                     </div>
                                     <div class="product-content">
@@ -621,13 +626,16 @@
                                             <li class="rating-on"><i class="fas fa-star"></i></li>
                                             <li class="rating-on"><i class="fas fa-star"></i></li>
                                         </ul>
-                                        <h4 class="product-title"><a href="single-product.html">Cale 6 eu accumsan massa facilisis Madden by Steve</a></h4>
+                                        <h4 class="product-title"><a href="single-product.html">@item.Desc</a></h4>
                                         <div class="product-price">
-                                            <span class="price-sale">€29.90</span>
+                                            <span class="price-sale">€@item.Price</span>
                                         </div>
                                     </div>
                                 </div> <!-- single product -->
                             </div>
+                                }
+
+                             }
                            
                        }
                        
@@ -1091,7 +1099,9 @@
                     </div> <!-- product items -->
                 </div>
             </div> <!-- tab content -->
+
         </div> <!-- container -->
+
     </section>
 
     <!--====== Product Part Ends ======-->
@@ -1101,55 +1111,18 @@
     <div class="brand-area pt-80">
         <div class="container-fluid custom-container">
             <div class="row brand-active">
-                <div class="col-lg-2">
+             @foreach (var item in Model.brands)
+            {
+                   <div class="col-lg-2">
                     <div class="single-brand">
                         <a href="#">
-                            <img src="~/images/brand/brand-1.jpg" alt="brand">
+
+                            <img src="~/images/brand/@item.ImgUrl" alt="brand">
                         </a>
                     </div> <!-- single brand -->
                 </div>
-                <div class="col-lg-2">
-                    <div class="single-brand">
-                        <a href="#">
-                            <img src="~/images/brand/brand-2.jpg" alt="brand">
-                        </a>
-                    </div> <!-- single brand -->
-                </div>
-                <div class="col-lg-2">
-                    <div class="single-brand">
-                        <a href="#">
-                            <img src="~/images/brand/brand-3.jpg" alt="brand">
-                        </a>
-                    </div> <!-- single brand -->
-                </div>
-                <div class="col-lg-2">
-                    <div class="single-brand">
-                        <a href="#">
-                            <img src="~/images/brand/brand-4.jpg" alt="brand">
-                        </a>
-                    </div> <!-- single brand -->
-                </div>
-                <div class="col-lg-2">
-                    <div class="single-brand">
-                        <a href="#">
-                            <img src="~/images/brand/brand-5.jpg" alt="brand">
-                        </a>
-                    </div> <!-- single brand -->
-                </div>
-                <div class="col-lg-2">
-                    <div class="single-brand">
-                        <a href="#">
-                            <img src="~/images/brand/brand-6.jpg" alt="brand">
-                        </a>
-                    </div> <!-- single brand -->
-                </div>
-                <div class="col-lg-2">
-                    <div class="single-brand">
-                        <a href="#">
-                            <img src="~/images/brand/brand-4.jpg" alt="brand">
-                        </a>
-                    </div> <!-- single brand -->
-                </div>
+            }
+           
             </div> <!-- row -->
         </div> <!-- container -->
     </div>
@@ -1217,66 +1190,26 @@
     <section class="blog-area blog-bg pt-100 pb-100">
         <div class="container">
             <div class="row blog-active">
-                <div class="col-lg-4">
+              @foreach (var item in Model.blogs)
+             {
+                   <div class="col-lg-4">
                     <div class="single-blog">
                         <div class="blag-image">
-                            <a href="blog-single-left-sidebar.html"><img src="~/images/blog-1.jpg" alt="Blog"></a>
+                            <a href="blog-single-left-sidebar.html"><img src="~/images/@item.ImgUrl" alt="Blog"></a>
                             <p class="meta-date">
-                                <span class="day">05</span>
-                                <span class="month">Dec</span>
+                                <span class="day">@item.Date</span>
+                               @* <span class="month">Dec</span>*@
                             </p>
                         </div>
                         <div class="blag-content">
-                            <h2 class="blog-title"><a href="blog-single-left-sidebar.html">This is Third Post For XipBlog</a></h2>
-                            <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum ...</p>
-                        </div>
-                    </div> <!-- single blog -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-blog">
-                        <div class="blag-image">
-                            <a href="blog-single-left-sidebar.html"><img src="~/images/blog-2.jpg" alt="Blog"></a>
-                            <p class="meta-date">
-                                <span class="day">05</span>
-                                <span class="month">Dec</span>
+                            <h2 class="blog-title"><a href="blog-single-left-sidebar.html">@item.Title</a></h2>
+                            <p>@item.Desc
                             </p>
                         </div>
-                        <div class="blag-content">
-                            <h2 class="blog-title"><a href="blog-single-left-sidebar.html">This is Third Post For XipBlog</a></h2>
-                            <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum ...</p>
-                        </div>
                     </div> <!-- single blog -->
                 </div>
-                <div class="col-lg-4">
-                    <div class="single-blog">
-                        <div class="blag-image">
-                            <a href="blog-single-left-sidebar.html"><img src="~/images/blog-3.jpg" alt="Blog"></a>
-                            <p class="meta-date">
-                                <span class="day">05</span>
-                                <span class="month">Dec</span>
-                            </p>
-                        </div>
-                        <div class="blag-content">
-                            <h2 class="blog-title"><a href="blog-single-left-sidebar.html">This is Third Post For XipBlog</a></h2>
-                            <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum ...</p>
-                        </div>
-                    </div> <!-- single blog -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-blog">
-                        <div class="blag-image">
-                            <a href="blog-single-left-sidebar.html"><img src="~/images/blog-4.jpg" alt="Blog"></a>
-                            <p class="meta-date">
-                                <span class="day">05</span>
-                                <span class="month">Dec</span>
-                            </p>
-                        </div>
-                        <div class="blag-content">
-                            <h2 class="blog-title"><a href="blog-single-left-sidebar.html">This is Third Post For XipBlog</a></h2>
-                            <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum ...</p>
-                        </div>
-                    </div> <!-- single blog -->
-                </div>
+             }
+             
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
@@ -1290,36 +1223,22 @@
             <div class="row">
                 <div class="col-lg-10">
                     <div class="testimonial-active">
-                        <div class="single-testimonial d-sm-flex">
+                        @foreach (var item in Model.Bios)
+                       {
+                              <div class="single-testimonial d-sm-flex">
                             <div class="testimonial-author">
-                                <img src="~/images/author-1.png" alt="author">
+                                <img src="~/images/@item.AuthorImageUrl" alt="author">
                             </div>
                             <div class="testimonial-content media-body">
-                                <p> An has feugiat vivendum, ad vix tacimates accusamus, cum commune lucilius no. Sit at alia civibus indoctum, ea mel regione percipit adipisci. Per modus nostrum vituperata no, eam ne magna solum constituam.</p>
-                                <h4 class="author-name">John Doe</h4>
-                                <span class="designation">email@yourwebsitename.com</span>
+                                <p> @item.AuthorDesc</p>
+                                <h4 class="author-name">@item.AuthorName</h4>
+                                <span class="designation">@item.EmailAdress</span>
                             </div>
-                        </div> <!-- single testimonial -->
-                        <div class="single-testimonial d-sm-flex">
-                            <div class="testimonial-author">
-                                <img src="~/images/author-1.png" alt="author">
-                            </div>
-                            <div class="testimonial-content media-body">
-                                <p> An has feugiat vivendum, ad vix tacimates accusamus, cum commune lucilius no. Sit at alia civibus indoctum, ea mel regione percipit adipisci. Per modus nostrum vituperata no, eam ne magna solum constituam.</p>
-                                <h4 class="author-name">John Doe</h4>
-                                <span class="designation">email@yourwebsitename.com</span>
-                            </div>
-                        </div> <!-- single testimonial -->
-                        <div class="single-testimonial d-sm-flex">
-                            <div class="testimonial-author">
-                                <img src="~/images/author-1.png" alt="author">
-                            </div>
-                            <div class="testimonial-content media-body">
-                                <p> An has feugiat vivendum, ad vix tacimates accusamus, cum commune lucilius no. Sit at alia civibus indoctum, ea mel regione percipit adipisci. Per modus nostrum vituperata no, eam ne magna solum constituam.</p>
-                                <h4 class="author-name">John Doe</h4>
-                                <span class="designation">email@yourwebsitename.com</span>
-                            </div>
-                        </div> <!-- single testimonial -->
+                           </div>
+                       }
+                     
+
+                    
                     </div> <!-- testimonial Active -->
                 </div>
             </div> <!-- row -->
@@ -1339,9 +1258,9 @@
                         <p>allup is a powerful eCommerce HTML Template</p>
 
                         <div class="newsletter-forn">
-                            <form action="#">
-                                <input type="text" placeholder="Your Email address">
-                                <button class="main-btn">Subscribe</button>
+                            <form  >
+                                <input  required class="subscribe" type="email" placeholder="Your Email address">
+                                <button class="main-btn subscribe-btn">Subscribe</button>
                             </form>
                         </div>
                     </div> <!-- newsletter content -->

@@ -10,5 +10,8 @@ namespace BakendProject.ViewModels
         public List<ModalProduct> modalProducts{ get; set; }
         public List<Product> products{ get; set; }
         public List<Category> categories{ get; set; }
+        public List <Brand> brands{ get; set; }
+        public List <Blog> blogs{ get; set; }
+        public List<Bio> Bios { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace BakendProject.Controllers
 {
@@ -23,12 +24,31 @@ namespace BakendProject.Controllers
                 .Include(p=>p.ProductImages)
                 .Include(p=>p.Category).ToList();
             List<Category> dbCategories = _context.Categories.ToList();
+            List<Brand> dbBrands = _context.Brands.ToList();
+            List<Blog> dbBlog = _context.Blogs.ToList();
+            List<Bio> dbBios = _context.Bios.ToList();
             HomeVM homeVM = new HomeVM();
             homeVM.modalProducts = dbModalProduct;
             homeVM.sliders = dbsliders;
             homeVM.products = dbProducts;
             homeVM.categories = dbCategories;
+            homeVM.brands = dbBrands;
+            homeVM.blogs = dbBlog;
+            homeVM.Bios=dbBios;
             return View(homeVM);
+        }
+        [HttpPost]
+        public async Task <IActionResult>Subscribe([FromForm]Subscribe subscribe)
+        {
+
+            Subscribe newSubscribe = new Subscribe()
+            {
+                Email = subscribe.Email
+            };
+            await _context.subscribes.AddAsync(newSubscribe);
+            await _context.SaveChangesAsync();
+            
+            return View();
         }
     }
 }
