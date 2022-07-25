@@ -92,19 +92,18 @@
                             </div>
                             <div class="single-info">
                                 <span class="title">Brand :</span>
-                                <span class="value"><a href="#">Brac</a></span>
+                                <span class="value"><a href="#">@Model.Product.Brand.Name</a></span>
                             </div>
                             <div class="single-info">
                                 <span class="title"> Product Code :</span>
-                                <span class="value">abcd1234</span>
+                                <span class="value">@Model.Product.Id</span>
                             </div>
                             <div class="single-info">
                                 <span class="title"> Availability :</span>
                                 <span class="value">In stock </span>
                             </div>
                         </div>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas consectetur inventore voluptatem dignissimos nemo repellendus est, harum maiores veritatis quidem.</p>
-                        
+                                <p> @Model.Product.Desc</p>                        
                         <div class="product-size-color-quantity">
                             <div class="product-quantity mt-25">
                                 <h5 class="title">Quantity</h5>
@@ -190,7 +189,7 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
                     <div class="description">
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. <br> <br> Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi. Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget.</p>
+                       <p>Lorem Ipsum</p>
                     </div> <!-- Description -->
                 </div>
                 <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
@@ -348,12 +347,18 @@
             </div> <!-- row -->
             <div class="product-items">
                 <div class="row product-active">
-                    <div class="col-lg-2">
+                 @foreach (var item in @Model.Products)
+                {
+                    @foreach (var img in item.ProductImages)
+                   {
+                       if (img.IsMain)
+                        {
+                               <div class="col-lg-2">
                         <div class="single-product mt-30">
                             <div class="product-image">
                                 <a href="single-product.html">
-                                    <img class="first-image" src="~/images/product/product-1.jpg" alt="product">
-                                    <img class="second-image" src="~/images/product/product-2.jpg" alt="product">
+                                    <img class="first-image" src="~/images/@img.ImageUrl" alt="product">
+                                    <img class="second-image" src="~/images/@img.ImageUrl" alt="product">
                                 </a>
                                 <ul class="product-meta">
                                     <li><a href="#"><i class="icon ion-bag"></i></a></li>
@@ -370,187 +375,18 @@
                                     <li><i class="fas fa-star"></i></li>
                                     <li><i class="fas fa-star"></i></li>
                                 </ul>
-                                <h4 class="product-title"><a href="single-product.html">Cale 6 eu accumsan massa facilisis Madden by Steve</a></h4>
+                                <h4 class="product-title"><a href="single-product.html">@item.Desc</a></h4>
                                 <div class="product-price">
-                                    <span class="price-sale">€11.90</span>
+                                    <span class="price-sale">€@item.Price</span>
                                 </div>
                             </div>
                         </div> <!-- single product -->
                     </div>
-                    <div class="col-lg-2">
-                        <div class="single-product mt-30">
-                            <div class="product-image">
-                                <a href="single-product.html">
-                                    <img class="first-image" src="~/images/product/product-3.jpg" alt="product">
-                                    <img class="second-image" src="~/images/product/product-4.jpg" alt="product">
-                                </a>
-                                <ul class="product-meta">
-                                    <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                    <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                </ul>
-                                <span class="discount-product">-12%</span>
-                            </div>
-                            <div class="product-content">
-                                <ul class="product-rating">
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                </ul>
-                                <h4 class="product-title"><a href="single-product.html">Originals Kaval Wind breaker Winter Jacket eu...</a></h4>
-                                <div class="product-price">
-                                    <span class="regular-price ">€23.90</span>
-                                    <span class="price-sale">€21.90</span>
-                                </div>
-                            </div>
-                        </div> <!-- single product -->
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="single-product mt-30">
-                            <div class="product-image">
-                                <a href="single-product.html">
-                                    <img class="first-image" src="~/images/product/product-5.jpg" alt="product">
-                                </a>
-                                <ul class="product-meta">
-                                    <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                    <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <ul class="product-rating">
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                </ul>
-                                <h4 class="product-title"><a href="single-product.html">Madden by Steve Madden Cale 6 eu accumsan massa...</a></h4>
-                                <div class="product-price">
-                                    <span class="price-sale">€11.90</span>
-                                </div>
-                            </div>
-                        </div> <!-- single product -->
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="single-product mt-30">
-                            <div class="product-image">
-                                <a href="single-product.html">
-                                    <img class="first-image" src="~/images/product/product-6.jpg" alt="product">
-                                    <img class="second-image" src="~/images/product/product-7.jpg" alt="product">
-                                </a>
-                                <ul class="product-meta">
-                                    <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                    <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <ul class="product-rating">
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                </ul>
-                                <h4 class="product-title"><a href="single-product.html">Water and Wind Resistant Insulated Jacket eu massa</a></h4>
-                                <div class="product-price">
-                                    <span class="price-sale">€11.90</span>
-                                </div>
-                            </div>
-                        </div> <!-- single product -->
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="single-product mt-30">
-                            <div class="product-image">
-                                <a href="single-product.html">
-                                    <img class="first-image" src="~/images/product/product-8.jpg" alt="product">
-                                </a>
-                                <ul class="product-meta">
-                                    <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                    <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <ul class="product-rating">
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                </ul>
-                                <h4 class="product-title"><a href="single-product.html">Juicy Couture Solid Sleeve Puffer Jacket eu accumsan..</a></h4>
-                                <div class="product-price">
-                                    <span class="price-sale">€18.90</span>
-                                </div>
-                            </div>
-                        </div> <!-- single product -->
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="single-product mt-30">
-                            <div class="product-image">
-                                <a href="single-product.html">
-                                    <img class="first-image" src="~/images/product/product-3.jpg" alt="product">
-                                    <img class="second-image" src="~/images/product/product-9.jpg" alt="product">
-                                </a>
-                                <ul class="product-meta">
-                                    <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                    <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <ul class="product-rating">
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                </ul>
-                                <h4 class="product-title"><a href="single-product.html">Cale 6 eu accumsan massa facilisis Madden by Steve</a></h4>
-                                <div class="product-price">
-                                    <span class="price-sale">€29.90</span>
-                                </div>
-                            </div>
-                        </div> <!-- single product -->
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="single-product mt-30">
-                            <div class="product-image">
-                                <a href="single-product.html">
-                                    <img class="first-image" src="~/images/product/product-3.jpg" alt="product">
-                                    <img class="second-image" src="~/images/product/product-9.jpg" alt="product">
-                                </a>
-                                <ul class="product-meta">
-                                    <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                    <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <ul class="product-rating">
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                </ul>
-                                <h4 class="product-title"><a href="single-product.html">Cale 6 eu accumsan massa facilisis Madden by Steve</a></h4>
-                                <div class="product-price">
-                                    <span class="price-sale">€29.90</span>
-                                </div>
-                            </div>
-                        </div> <!-- single product -->
-                    </div>
+                
+                        }
+                   }
+                    
+                }
                 </div> <!-- row -->
             </div> <!-- product items -->
         </div>
@@ -571,12 +407,18 @@
             </div> <!-- row -->
             <div class="product-items">
                 <div class="row product-active">
-                    <div class="col-lg-2">
+                   @foreach (var item in @Model.Products)
+                  {
+                      @foreach (var img in item.ProductImages)
+                     {
+                         if (img.IsMain)
+                        {
+                             <div class="col-lg-2">
                         <div class="single-product mt-30">
                             <div class="product-image">
                                 <a href="single-product.html">
-                                    <img class="first-image" src="~/images/product/product-1.jpg" alt="product">
-                                    <img class="second-image" src="~/images/product/product-2.jpg" alt="product">
+                                    <img class="first-image" src="~/images/@img.ImageUrl" alt="product">
+                                    <img class="second-image" src="~/images/@img.ImageUrl" alt="product">
                                 </a>
                                 <ul class="product-meta">
                                     <li><a href="#"><i class="icon ion-bag"></i></a></li>
@@ -593,187 +435,16 @@
                                     <li><i class="fas fa-star"></i></li>
                                     <li><i class="fas fa-star"></i></li>
                                 </ul>
-                                <h4 class="product-title"><a href="single-product.html">Cale 6 eu accumsan massa facilisis Madden by Steve</a></h4>
+                                <h4 class="product-title"><a href="single-product.html">@item.Desc</a></h4>
                                 <div class="product-price">
-                                    <span class="price-sale">€11.90</span>
+                                    <span class="price-sale">€@item.Price</span>
                                 </div>
                             </div>
                         </div> <!-- single product -->
                     </div>
-                    <div class="col-lg-2">
-                        <div class="single-product mt-30">
-                            <div class="product-image">
-                                <a href="single-product.html">
-                                    <img class="first-image" src="~/images/product/product-3.jpg" alt="product">
-                                    <img class="second-image" src="~/images/product/product-4.jpg" alt="product">
-                                </a>
-                                <ul class="product-meta">
-                                    <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                    <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                </ul>
-                                <span class="discount-product">-12%</span>
-                            </div>
-                            <div class="product-content">
-                                <ul class="product-rating">
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                </ul>
-                                <h4 class="product-title"><a href="single-product.html">Originals Kaval Wind breaker Winter Jacket eu...</a></h4>
-                                <div class="product-price">
-                                    <span class="regular-price ">€23.90</span>
-                                    <span class="price-sale">€21.90</span>
-                                </div>
-                            </div>
-                        </div> <!-- single product -->
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="single-product mt-30">
-                            <div class="product-image">
-                                <a href="single-product.html">
-                                    <img class="first-image" src="~/images/product/product-5.jpg" alt="product">
-                                </a>
-                                <ul class="product-meta">
-                                    <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                    <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <ul class="product-rating">
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                </ul>
-                                <h4 class="product-title"><a href="single-product.html">Madden by Steve Madden Cale 6 eu accumsan massa...</a></h4>
-                                <div class="product-price">
-                                    <span class="price-sale">€11.90</span>
-                                </div>
-                            </div>
-                        </div> <!-- single product -->
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="single-product mt-30">
-                            <div class="product-image">
-                                <a href="single-product.html">
-                                    <img class="first-image" src="~/images/product/product-6.jpg" alt="product">
-                                    <img class="second-image" src="~/images/product/product-7.jpg" alt="product">
-                                </a>
-                                <ul class="product-meta">
-                                    <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                    <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <ul class="product-rating">
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                </ul>
-                                <h4 class="product-title"><a href="single-product.html">Water and Wind Resistant Insulated Jacket eu massa</a></h4>
-                                <div class="product-price">
-                                    <span class="price-sale">€11.90</span>
-                                </div>
-                            </div>
-                        </div> <!-- single product -->
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="single-product mt-30">
-                            <div class="product-image">
-                                <a href="single-product.html">
-                                    <img class="first-image" src="~/images/product/product-8.jpg" alt="product">
-                                </a>
-                                <ul class="product-meta">
-                                    <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                    <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <ul class="product-rating">
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                </ul>
-                                <h4 class="product-title"><a href="single-product.html">Juicy Couture Solid Sleeve Puffer Jacket eu accumsan..</a></h4>
-                                <div class="product-price">
-                                    <span class="price-sale">€18.90</span>
-                                </div>
-                            </div>
-                        </div> <!-- single product -->
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="single-product mt-30">
-                            <div class="product-image">
-                                <a href="single-product.html">
-                                    <img class="first-image" src="~/images/product/product-3.jpg" alt="product">
-                                    <img class="second-image" src="~/images/product/product-9.jpg" alt="product">
-                                </a>
-                                <ul class="product-meta">
-                                    <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                    <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <ul class="product-rating">
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                </ul>
-                                <h4 class="product-title"><a href="single-product.html">Cale 6 eu accumsan massa facilisis Madden by Steve</a></h4>
-                                <div class="product-price">
-                                    <span class="price-sale">€29.90</span>
-                                </div>
-                            </div>
-                        </div> <!-- single product -->
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="single-product mt-30">
-                            <div class="product-image">
-                                <a href="single-product.html">
-                                    <img class="first-image" src="~/images/product/product-3.jpg" alt="product">
-                                    <img class="second-image" src="~/images/product/product-9.jpg" alt="product">
-                                </a>
-                                <ul class="product-meta">
-                                    <li><a href="#"><i class="icon ion-bag"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-favorite-outline"></i></a></li>
-                                    <li><a href="#"><i class="icon ion-android-options"></i></a></li>
-                                    <li><a data-toggle="modal" data-target="#productQuickModal" href="#"><i class="icon ion-android-open"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <ul class="product-rating">
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                    <li class="rating-on"><i class="fas fa-star"></i></li>
-                                </ul>
-                                <h4 class="product-title"><a href="single-product.html">Cale 6 eu accumsan massa facilisis Madden by Steve</a></h4>
-                                <div class="product-price">
-                                    <span class="price-sale">€29.90</span>
-                                </div>
-                            </div>
-                        </div> <!-- single product -->
-                    </div>
+                        }
+                     }
+                  }
                 </div> <!-- row -->
             </div> <!-- product items -->
         </div>

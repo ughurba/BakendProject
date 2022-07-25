@@ -136,3 +136,4 @@ C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3
 C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SortPartialPageTwo.cshtml.g.cs
 C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Shop\Detail.cshtml.g.cs
 C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_DetailPartial.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_DescCommetPartial.cshtml.g.cs

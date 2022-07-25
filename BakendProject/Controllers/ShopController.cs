@@ -83,10 +83,11 @@ namespace BakendProject.Controllers
         {
 
             List<Product> products = _context.Products.Include(p => p.ProductImages).ToList();
-            Product dbProduct = _context.Products.Include(p => p.ProductImages).FirstOrDefault(p => p.Id == id);
+            Product dbProduct = _context.Products.Include(p => p.ProductImages).Include(p => p.Brand).FirstOrDefault(p => p.Id == id);
             DetailVM detail = new DetailVM();
             detail.Products = products;
             detail.Product = dbProduct;
+            ViewBag.Description = dbProduct.Desc;
             return View(detail);
 
 
@@ -96,11 +97,17 @@ namespace BakendProject.Controllers
         public IActionResult DetailTwo(int? id)
         {
 
-            Product dbProduct = _context.Products.Include(p => p.ProductImages).FirstOrDefault(p => p.Id == id);
-        
+            Product dbProduct = _context.Products.Include(p => p.ProductImages).Include(p=>p.Brand).FirstOrDefault(p => p.Id == id);
             return PartialView("_DetailPartial", dbProduct);
 
         }
+        public IActionResult DescComment(int? id)
+        {
 
+            Product dbProduct = _context.Products.Include(p => p.ProductImages).Include(p => p.Brand).FirstOrDefault(p => p.Id == id);
+          
+            return PartialView("_DescCommetPartial", dbProduct);
+
+        }
     }
 }

@@ -1,0 +1,144 @@
+﻿   @model Product 
+<div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                    <div class="description">
+                       <p>@Model.Desc</p>
+                    </div> <!-- Description -->
+                </div>
+                <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
+                    <div class="product-rating-content">
+                        <div class="average-rating">
+                            <h4 class="rating-overall">4.5 <span>(Overall)</span></h4>
+                            <p>Based on 9 Comments</p>
+                        </div>
+                        <div class="rating-list d-flex flex-wrap">
+                            <div class="single-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(5)</span>
+                            </div>
+                            <div class="single-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(3)</span>
+                            </div>
+                            <div class="single-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(1)</span>
+                            </div>
+                            <div class="single-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(0)</span>
+                            </div>
+                            <div class="single-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(0)</span>
+                            </div>
+                        </div>
+                        <div class="rating-items">
+                            <div class="single-rating-item">
+                                <div class="rating-author d-flex flex-wrap">
+                                    <h4 class="author-name">Cristopher Lee</h4>
+                                    <ul class="rating-star">
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><span>(5)</span></li>
+                                    </ul>
+                                </div>
+                                <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
+                            </div>
+                            <div class="single-rating-item">
+                                <div class="rating-author d-flex flex-wrap">
+                                    <h4 class="author-name">Hasan Mubarak</h4>
+                                    <ul class="rating-star">
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><span>(5)</span></li>
+                                    </ul>
+                                </div>
+                                <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
+                            </div>
+                            <div class="single-rating-item">
+                                <div class="rating-author d-flex flex-wrap">
+                                    <h4 class="author-name">Rashed Mahmud</h4>
+                                    <ul class="rating-star">
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><span>(5)</span></li>
+                                    </ul>
+                                </div>
+                                <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
+                            </div>
+                        </div>
+                        
+                        <div class="rating-form">
+                            <h4 class="form-title">Add your Comments</h4>
+                            
+                            <form action="#">
+                                <div class="rating-star d-flex">
+                                     <span class="title">Rating:</span>
+                                    <ul>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                    </ul>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="single-form">
+                                            <label>Name:</label>
+                                            <input type="text" placeholder="Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single-form">
+                                            <label>Email:</label>
+                                            <input type="email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="single-form">
+                                            <label>Your Review:</label>
+                                            <textarea placeholder="Write a review"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="single-form">
+                                            <button class="main-btn">Add Review</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div> <!-- Rating Content -->
+                </div>
+            </div> 

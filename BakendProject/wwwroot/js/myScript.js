@@ -61,7 +61,20 @@ const detailContent = document.querySelector(".detail-content")
 
         item.addEventListener("click", handleShowDetail)
     })
+const tabContent = document.querySelector(".tab-content")
+btnSubProduct.forEach(item => {
 
+    const handleShowDetail = async () => {
+
+        const dataIdBtnSub = item.getAttribute("data-id")
+
+        const { data } = await axios.get("/shop/DescComment?id=" + dataIdBtnSub)
+
+        tabContent.innerHTML = data
+    }
+
+    item.addEventListener("click", handleShowDetail)
+})
 
 
 
