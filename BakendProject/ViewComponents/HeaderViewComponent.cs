@@ -22,7 +22,8 @@ namespace BakendProject.ViewComponents
 
             List<Category> dbCategories = _context.Categories.Where(c => c.ParentId == null).ToList();
             List<Category> dbSubCategories = _context.Categories.OrderBy(c => c.ParentId == c.Id).ToList();
-            
+
+           
 
 
 
@@ -30,6 +31,8 @@ namespace BakendProject.ViewComponents
             headerVM.bios = dbBio;
             headerVM.categories = dbCategories;
             headerVM.subCategories = dbSubCategories;
+   
+           
 
 
             return View(await Task.FromResult(headerVM));

@@ -1106,28 +1106,7 @@
 
     <!--====== Product Part Ends ======-->
 
-    <!--====== Brand Part Start ======-->
-
-    <div class="brand-area pt-80">
-        <div class="container-fluid custom-container">
-            <div class="row brand-active">
-             @foreach (var item in Model.brands)
-            {
-                   <div class="col-lg-2">
-                    <div class="single-brand">
-                        <a href="#">
-
-                            <img src="~/images/brand/@item.ImgUrl" alt="brand">
-                        </a>
-                    </div> <!-- single brand -->
-                </div>
-            }
-           
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </div>
-
-    <!--====== Brand Part Ends ======-->
+   
 
     <!--====== Features Banner Part Start ======-->
 
@@ -1184,90 +1163,6 @@
     </section>
 
     <!--====== Features Banner Part Ends ======-->
-
-    <!--====== Blog Part Start ======-->
-
-    <section class="blog-area blog-bg pt-100 pb-100">
-        <div class="container">
-            <div class="row blog-active">
-              @foreach (var item in Model.blogs)
-             {
-                   <div class="col-lg-4">
-                    <div class="single-blog">
-                        <div class="blag-image">
-                            <a href="blog-single-left-sidebar.html"><img src="~/images/@item.ImgUrl" alt="Blog"></a>
-                            <p class="meta-date">
-                                <span class="day">@item.Date</span>
-                               @* <span class="month">Dec</span>*@
-                            </p>
-                        </div>
-                        <div class="blag-content">
-                            <h2 class="blog-title"><a href="blog-single-left-sidebar.html">@item.Title</a></h2>
-                            <p>@item.Desc
-                            </p>
-                        </div>
-                    </div> <!-- single blog -->
-                </div>
-             }
-             
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
-
-    <!--====== Blog Part Ends ======-->
-
-    <!--====== Testimonial Part Start ======-->
-
-    <section class="testimonial-area bg_cover pt-100 pb-100" style="background-image: url(images/bg_testimonial.jpg);">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10">
-                    <div class="testimonial-active">
-                        @foreach (var item in Model.Bios)
-                       {
-                              <div class="single-testimonial d-sm-flex">
-                            <div class="testimonial-author">
-                                <img src="~/images/@item.AuthorImageUrl" alt="author">
-                            </div>
-                            <div class="testimonial-content media-body">
-                                <p> @item.AuthorDesc</p>
-                                <h4 class="author-name">@item.AuthorName</h4>
-                                <span class="designation">@item.EmailAdress</span>
-                            </div>
-                           </div>
-                       }
-                     
-
-                    
-                    </div> <!-- testimonial Active -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
-
-    <!--====== Testimonial Part Ends ======-->
-
-    <!--====== Newsletter Part Start ======-->
-
-    <section class="newsletter-area pt-100 pb-100 bg_cover" style="background-image: url(images/bg-newletter.jpg)">
-        <div class="container">
-            <div class="row justify-content-end">
-                <div class="col-lg-8">
-                    <div class="newsletter-content">
-                        <h2 class="newsletter-title">Subscribe our newsletter</h2>
-                        <p>allup is a powerful eCommerce HTML Template</p>
-
-                        <div class="newsletter-forn">
-                            <form  >
-                                <input  required class="subscribe" type="email" placeholder="Your Email address">
-                                <button class="main-btn subscribe-btn">Subscribe</button>
-                            </form>
-                        </div>
-                    </div> <!-- newsletter content -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
 
     <!--====== Newsletter Part Ends ======-->
 

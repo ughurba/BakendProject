@@ -24,17 +24,13 @@ namespace BakendProject.Controllers
                 .Include(p=>p.ProductImages)
                 .Include(p=>p.Category).ToList();
             List<Category> dbCategories = _context.Categories.ToList();
-            List<Brand> dbBrands = _context.Brands.ToList();
-            List<Blog> dbBlog = _context.Blogs.ToList();
-            List<Bio> dbBios = _context.Bios.ToList();
+          
             HomeVM homeVM = new HomeVM();
             homeVM.modalProducts = dbModalProduct;
             homeVM.sliders = dbsliders;
             homeVM.products = dbProducts;
             homeVM.categories = dbCategories;
-            homeVM.brands = dbBrands;
-            homeVM.blogs = dbBlog;
-            homeVM.Bios=dbBios;
+         
             return View(homeVM);
         }
         [HttpPost]
@@ -46,9 +42,9 @@ namespace BakendProject.Controllers
                 Email = subscribe.Email
             };
             await _context.subscribes.AddAsync(newSubscribe);
-            await _context.SaveChangesAsync();
+           _context.SaveChanges();
             
-            return View();
+            return RedirectToAction("index");
         }
     }
 }

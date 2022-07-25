@@ -48,7 +48,7 @@ namespace BakendProject
             {
                 endpoints.MapControllerRoute(
                     "default",
-                    "{controller=home}/{action=index}"
+                    "{controller=shop}/{action=index}"
 
                     );
             });

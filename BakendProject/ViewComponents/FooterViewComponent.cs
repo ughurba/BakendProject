@@ -1,6 +1,8 @@
 ﻿using BakendProject.DAL;
 using BakendProject.Models;
+using BakendProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,8 +18,15 @@ namespace BakendProject.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            Bio bio = _context.Bios.FirstOrDefault();
-            return View(await Task.FromResult(bio));
+           List <Bio> bios = _context.Bios.ToList();
+            List<Brand> dbBrands = _context.Brands.ToList();
+            List<Blog> dbBlog = _context.Blogs.ToList();
+
+            FooterVM footerVM= new FooterVM();
+            footerVM.brands = dbBrands;
+            footerVM.blogs = dbBlog;
+            footerVM.bios = bios;
+            return View(await Task.FromResult(footerVM));
         }
     }
 }

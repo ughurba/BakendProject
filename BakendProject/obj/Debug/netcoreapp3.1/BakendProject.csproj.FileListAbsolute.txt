@@ -113,8 +113,6 @@ C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3
 C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\BakendProject.TagHelpers.output.cache
 C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\BakendProject.RazorCoreGenerate.cache
 C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ViewImports.cshtml.g.cs
-C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ViewStart.cshtml.g.cs
 C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\BakendProject.RazorTargetAssemblyInfo.cache
 C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\BakendProject.RazorTargetAssemblyInfo.cs
 C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\BakendProject.Views.pdb
@@ -126,3 +124,15 @@ C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3
 C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
 C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Shop\Index.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SortPartial.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SortPartialPageTwo.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Shop\Detail.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_DetailPartial.cshtml.g.cs
