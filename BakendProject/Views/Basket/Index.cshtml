@@ -1,4 +1,4 @@
-﻿
+﻿@model List<BasketItem>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -24,186 +24,46 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    @foreach (var item in Model)
+                                   {
+                                       <tr>
                                         <td>
                                             <div class="product-image">
-                                                <img src="~/images/product-cart/cart-1.jpg" alt="cart">
+                                                <img src="~/images/@item.ImgUrl" alt="cart">
                                             </div>
                                         </td>
                                         <td>
                                             <div class="product-title">
-                                                <h4 class="title"><a href="single-product.html">New Balance Fresh Foam LAZR v1 Sport eu accumsan massa facilisis</a></h4>
+                                                <h4 class="title"><a href="single-product.html">@item.Product.Name</a></h4>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="product-price">
-                                                <span class="price">€18.90</span>
+                                                <span class="price">@item.Price</span>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="product-quantity">
                                                 <div class="quantity mt-15 d-flex">
-                                                    <button type="button" class="sub"><i class="fal fa-minus"></i></button>
-                                                    <input type="text" value="1" />
-                                                    <button type="button" class="add"><i class="fal fa-plus"></i></button>
+                                                    <button type="button" data-id="@item.ProductId" class="minusBtn"><i class="fal fa-minus"></i></button>
+                                                    <input class="countProduct" data-id="@item.ProductId" type="text" value="@item.Count" />
+                                                    <button data-id="@item.ProductId" type="button" class="plusBtn"><i class="fal fa-plus"></i></button>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="product-total">
-                                                <span class="total-amount">€18.90</span>
+                                                <span data-id="@item.ProductId" class="total-amount">€@item.Sum</span>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="product-delete">
-                                                <a href="#"><i class="fal fa-trash-alt"></i></a>
+                                                <a data-id="@item.ProductId" href="#" class="removeBtn"><i class="fal fa-trash-alt"></i></a>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="product-image">
-                                                <img src="~/images/product-cart/cart-2.jpg" alt="cart">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-title">
-                                                <h4 class="title"><a href="single-product.html">New Balance Fresh Foam LAZR v1 Sport eu accumsan massa facilisis</a></h4>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-price">
-                                                <span class="price">€18.90</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-quantity">
-                                                <div class="quantity mt-15 d-flex">
-                                                    <button type="button" class="sub"><i class="fal fa-minus"></i></button>
-                                                    <input type="text" value="1" />
-                                                    <button type="button" class="add"><i class="fal fa-plus"></i></button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-total">
-                                                <span class="total-amount">€18.90</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-delete">
-                                                <a href="#"><i class="fal fa-trash-alt"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="product-image">
-                                                <img src="~/images/product-cart/cart-1.jpg" alt="cart">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-title">
-                                                <h4 class="title"><a href="single-product.html">New Balance Fresh Foam LAZR v1 Sport eu accumsan massa facilisis</a></h4>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-price">
-                                                <span class="price">€18.90</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-quantity">
-                                                <div class="quantity mt-15 d-flex">
-                                                    <button type="button" class="sub"><i class="fal fa-minus"></i></button>
-                                                    <input type="text" value="1" />
-                                                    <button type="button" class="add"><i class="fal fa-plus"></i></button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-total">
-                                                <span class="total-amount">€18.90</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-delete">
-                                                <a href="#"><i class="fal fa-trash-alt"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="product-image">
-                                                <img src="~/images/product-cart/cart-2.jpg" alt="cart">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-title">
-                                                <h4 class="title"><a href="single-product.html">New Balance Fresh Foam LAZR v1 Sport eu accumsan massa facilisis</a></h4>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-price">
-                                                <span class="price">€18.90</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-quantity">
-                                                <div class="quantity mt-15 d-flex">
-                                                    <button type="button" class="sub"><i class="fal fa-minus"></i></button>
-                                                    <input type="text" value="1" />
-                                                    <button type="button" class="add"><i class="fal fa-plus"></i></button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-total">
-                                                <span class="total-amount">€18.90</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-delete">
-                                                <a href="#"><i class="fal fa-trash-alt"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="product-image">
-                                                <img src="~/images/product-cart/cart-1.jpg" alt="cart">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-title">
-                                                <h4 class="title"><a href="single-product.html">New Balance Fresh Foam LAZR v1 Sport eu accumsan massa facilisis</a></h4>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-price">
-                                                <span class="price">€18.90</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-quantity">
-                                                <div class="quantity mt-15 d-flex">
-                                                    <button type="button" class="sub"><i class="fal fa-minus"></i></button>
-                                                    <input type="text" value="1" />
-                                                    <button type="button" class="add"><i class="fal fa-plus"></i></button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-total">
-                                                <span class="total-amount">€18.90</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="product-delete">
-                                                <a href="#"><i class="fal fa-trash-alt"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                   }
+                                 
                                 </tbody>
                             </table>
                         </div>

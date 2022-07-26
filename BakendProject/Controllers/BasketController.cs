@@ -1,8 +1,10 @@
 ﻿using BakendProject.DAL;
 using BakendProject.Models;
+using BakendProject.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,9 +21,25 @@ namespace BakendProject.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult Index()
+        public async Task <IActionResult> Index()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+                List<BasketItem> baskets = _context.BasketItems
+                    .Include(b => b.Product)
+                    .Include(u=>u.AppUser)
+                    .Where(b=>b.AppUserId == user.Id)
+                    .ToList();
+                return View(baskets);
+            }
+            else
+            {
+                return RedirectToAction("login","account");
+            }
+           
+            
         }
         [HttpPost]
         public async Task<IActionResult> AddItem([FromForm] int? id)
@@ -45,12 +63,17 @@ namespace BakendProject.Controllers
                     basketItem.Product = dbProduct;
                     basketItem.Count = 1;
                     basketItem.ImgUrl = productImage.ImageUrl;
+                    basketItem.Sum = basketItem.Count * dbProduct.Price;
                     await _context.AddAsync(basketItem);
                 }
                 else
                 {
-                    isExist.Count++;
-                 
+                    if(isExist.Count <= isExist.Product.StockCount)
+                    {
+                        isExist.Count++;
+                        isExist.Sum = isExist.Count * isExist.Price;
+                    }
+       
                 }
 
                 
@@ -59,6 +82,92 @@ namespace BakendProject.Controllers
             }
 
             return RedirectToAction("index", "home");
+        }
+
+
+
+        public async Task<IActionResult> Plus(int? id)
+        {
+            Product dbProduct = _context.Products.Include(p => p.ProductImages).FirstOrDefault(p => p.Id == id);
+           
+           
+            var obj = new object();
+            if (User.Identity.IsAuthenticated)
+            {
+
+               
+                BasketItem isExist = _context.BasketItems.Include(p=>p.Product).FirstOrDefault(b => b.ProductId == dbProduct.Id);
+                if (isExist != null)
+                {
+                    if (isExist.Count < isExist.Product.StockCount)
+                    {
+                        isExist.Count++;
+                        isExist.Sum = isExist.Count * isExist.Price;
+                        obj = new
+                        {
+                            Sum = isExist.Sum,
+                            Count = isExist.Count,
+                            ProductCount = isExist.Product.StockCount
+                        };
+                    }
+                }
+                await _context.SaveChangesAsync();
+            }
+           
+            return Json(obj);
+        }
+        public async Task  <IActionResult> Minus(int? id)
+        {
+
+            Product dbProduct = _context.Products.Include(p => p.ProductImages).FirstOrDefault(p => p.Id == id);
+          
+          
+            var obj = new object();
+            if (User.Identity.IsAuthenticated)
+            {
+
+                
+                BasketItem isExist = _context.BasketItems.Include(p => p.Product).FirstOrDefault(b => b.ProductId == dbProduct.Id);
+                if (isExist != null)
+                {
+                    if (isExist.Count > 1 )
+                    {
+                        isExist.Count--;
+                        isExist.Sum = isExist.Count * isExist.Price;
+                        obj = new
+                        {
+                            Sum = isExist.Sum,
+                            Count = isExist.Count,
+                            ProductCount = isExist.Product.StockCount
+                        };
+                    }
+                }
+                await _context.SaveChangesAsync();
+            }
+
+            return Json(obj);
+
+        }
+
+        public async Task <IActionResult> Remove(int? id)
+        {
+            Product dbProduct = _context.Products.Include(p => p.ProductImages).FirstOrDefault(p => p.Id == id);
+            
+           
+
+            if (User.Identity.IsAuthenticated)
+            {
+
+           
+                BasketItem isExist = _context.BasketItems.Include(p => p.Product).FirstOrDefault(b => b.ProductId == dbProduct.Id);
+                if (isExist != null)
+                {
+                  _context.BasketItems.Remove(isExist);
+                    
+                }
+                await _context.SaveChangesAsync();
+            }
+            return Ok();
         }
     }
 }

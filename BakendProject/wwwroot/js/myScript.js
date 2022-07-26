@@ -83,7 +83,7 @@ const basketItem = document.querySelectorAll(".basketItem")
 
 
 basketItem.forEach(btn => {
-    console.log(btn)
+   
     const handleAddItemToBasket = (ev) =>
     {
     
@@ -98,4 +98,101 @@ basketItem.forEach(btn => {
 
     btn.addEventListener("click",handleAddItemToBasket)
 })
+
+const countProduct = document.querySelectorAll(".countProduct")
+const plusBtn = document.querySelectorAll(".plusBtn")
+const sum = document.querySelectorAll(".total-amount");
+const minusBtn = document.querySelectorAll(".minusBtn");
+const removeBtn = document.querySelectorAll(".removeBtn");
+
+removeBtn.forEach(item => {
+
+    async function handleRemoveElement(ev) {
+        ev.preventDefault();
+        const removeId = item.getAttribute("data-id")
+        try {
+            const { data } = await axios.get("/basket/remove?id=" + removeId)
+            this.parentElement.parentElement.parentElement.remove();
+        } catch (err) {
+            alert(err)
+        }
+       
+    }
+
+    item.addEventListener("click",handleRemoveElement)
+})
+
+minusBtn.forEach(item => {
+
+
+    const dataIdProduct = item.getAttribute("data-id")
+
+    item.addEventListener("click", async () => {
+        const { data } = await axios.get("/basket/minus?id=" + dataIdProduct)
+
+
+        countProduct.forEach(value => {
+            const productId = value.getAttribute("data-id")
+            if (productId == dataIdProduct) {
+
+                if (data.count >= 1) {
+                    value.value = data.count
+                    sum.forEach(s => {
+                        const sumId = s.getAttribute("data-id")
+                        console.log(data)
+                        console.log(s)
+                        if (sumId == dataIdProduct) {
+                            s.innerHTML = "€" + data.sum
+                        }
+                    })
+
+                } 
+
+
+            }
+
+        })
+
+    })
+
+
+})
+
+plusBtn.forEach(item => {
+    
+    const dataIdProduct = item.getAttribute("data-id")
+    item.addEventListener("click", async () => {
+        const { data } = await axios.get("/basket/plus?id=" + dataIdProduct)
+
+        
+        countProduct.forEach(value => {
+            const productId = value.getAttribute("data-id")
+            if (productId == dataIdProduct) {
+           
+                if (data.count <= data.productCount) {
+                    value.value = data.count
+                    sum.forEach(s => {
+                        const sumId = s.getAttribute("data-id")
+                        console.log(data)
+                        console.log(s)
+                        if (sumId == dataIdProduct) {
+                            s.innerHTML = "€" + data.sum
+                        }
+                    })
+                   
+                } else {
+                    alert("olmaz")
+                }
+
+
+            }
+
+            })
+
+       
+
+
+    })
+})
+
 
