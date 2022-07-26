@@ -1,4 +1,6 @@
-﻿namespace BakendProject.Models
+﻿using System.Collections.Generic;
+
+namespace BakendProject.Models
 {
     public class BasketItem
     {
@@ -7,7 +9,15 @@
 
         public int ProductId { get; set; }
         public Product Product { get; set; }
+       
         public string UserId { get; set; }
         public User User { get; set; }
+        public string AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
+        public int Sum { get; set; }
+        public int Count { get; set; }
+        public double Price{ get; set; }
+        public string ImgUrl { get; set; }
+
     }
 }

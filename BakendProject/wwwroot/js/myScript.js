@@ -76,6 +76,26 @@ btnSubProduct.forEach(item => {
     item.addEventListener("click", handleShowDetail)
 })
 
+//--------------basket--------------///
 
 
+const basketItem = document.querySelectorAll(".basketItem")
+
+
+basketItem.forEach(btn => {
+    console.log(btn)
+    const handleAddItemToBasket = (ev) =>
+    {
+    
+        ev.preventDefault();
+        const dataIdProduct = btn.getAttribute("data-id")
+        var formData = new FormData();
+        formData.append("id", dataIdProduct)
+        axios.post("/basket/additem", formData)
+    }
+
+
+
+    btn.addEventListener("click",handleAddItemToBasket)
+})
 

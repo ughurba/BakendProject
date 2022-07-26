@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "37FoBi3MOhCu6K5ZKQeFYRPWk8et53hzvNFvNOm04L3U3dMGLxcCg+cqlDjfpGaFCjpwMuFPEW4ll0rjo9n3hg==",
+  "dgSpecHash": "hs/X0ziybbjWkwWYdhJjLWHoMGDhyP9jww6MWmbBzfsWAgBGDy5ymUY5HpTvSCGQOznR56K7p8W8t1DI7K/daQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Clean__Laptop\\Desktop\\BakendProject\\BakendProject\\BakendProject.csproj",
+  "projectFilePath": "C:\\Users\\Clean__Laptop\\Desktop\\BakendProjectV2\\BakendProject\\BakendProject\\BakendProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Clean__Laptop\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\Clean__Laptop\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

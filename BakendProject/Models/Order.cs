@@ -13,7 +13,8 @@ namespace BakendProject.Models
 
         public string UserId { get; set; }
         public User User { get; set; }
-
+        public string AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
         public List<OrderItem> OrderItems { get; set; }
     }
     public enum OrderStatus
