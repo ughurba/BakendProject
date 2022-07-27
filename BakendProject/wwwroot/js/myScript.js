@@ -80,21 +80,47 @@ btnSubProduct.forEach(item => {
 
 
 const basketItem = document.querySelectorAll(".basketItem")
-
-
+const newUl = document.querySelector(".newUl");
+const count = document.querySelector(".count");
+const total = document.querySelector(".total");
+const arr = [];
 basketItem.forEach(btn => {
-   
-    const handleAddItemToBasket = (ev) =>
+
+    const handleAddItemToBasket = async (ev) =>
     {
-    
+
         ev.preventDefault();
         const dataIdProduct = btn.getAttribute("data-id")
-        var formData = new FormData();
-        formData.append("id", dataIdProduct)
-        axios.post("/basket/additem", formData)
-    }
+        
+        const { data } = await axios.get("/basket/additem?id=" + dataIdProduct)
+        const div = `
+        
+                                             <li>
+                                                <div class="single-cart-item d-flex">
+                                                    <div class="cart-item-thumb">
+                                                        <a href="single-product.html"><img src="/images/${data.imgUrl}" alt="product"></a>
+                                                        <span class="product-quantity">${data.productCount}</span>
+                                                    </div>
+                                                    <div class="cart-item-content media-body">
+                                                        <h5 class="product-name"><a href="single-product.html">${data.name}</a></h5>
+                                                        <span class="product-price">€${data.price}</span>
+                                                        <span class="product-color"><strong>Color:</strong> White</span>
+                                                        <a href="#" class="product-close"><i class="fal fa-times"></i></a>
+                                                    </div>
+                                                </div>             
+                                             </li>
 
-
+`
+        total.innerHTML = "$" + data.total
+       
+        if (Object.keys(data).length !== 0) {
+            var newDoc = new DOMParser().parseFromString(div, "text/html");
+            count.innerHTML = data.count
+            newUl.append(newDoc.firstChild.lastChild.firstChild)
+        }
+           
+        }
+      
 
     btn.addEventListener("click",handleAddItemToBasket)
 })
@@ -139,8 +165,7 @@ minusBtn.forEach(item => {
                     value.value = data.count
                     sum.forEach(s => {
                         const sumId = s.getAttribute("data-id")
-                        console.log(data)
-                        console.log(s)
+                       
                         if (sumId == dataIdProduct) {
                             s.innerHTML = "€" + data.sum
                         }
@@ -194,5 +219,10 @@ plusBtn.forEach(item => {
 
     })
 })
+
+
+
+
+
 
 

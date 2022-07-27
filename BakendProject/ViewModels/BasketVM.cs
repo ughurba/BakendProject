@@ -14,5 +14,6 @@ namespace BakendProject.ViewModels
         public AppUser AppUser { get; set; }
         public int Sum{ get; set; }
         public int Count { get; set; }
+        public int TotalPrice { get; set; }
     }
 }

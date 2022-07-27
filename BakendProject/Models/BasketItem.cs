@@ -18,7 +18,8 @@ namespace BakendProject.Models
         public int Count { get; set; }
         public double Price{ get; set; }
         public string ImgUrl { get; set; }
-        
+        public double TotalPrice { get; set; }
+
 
     }
 }

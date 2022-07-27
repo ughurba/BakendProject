@@ -215,40 +215,39 @@
                                         <a href="#">
                                             <i class="icon ion-bag"></i>
                                             <span class="text">Cart :</span>
-                                            <span class="total">$0.00</span>
-                                            <span class="count">0</span>
+                                            <span class="total">$@ViewBag.Total</span>
+                                            <span class="count">@ViewBag.Length</span>
                                         </a>
                                     </div>
                                     <div class="mini-cart">
-                                        <ul class="cart-items">
-                                            <li>
+                                        <ul class="newUl cart-items" id="basketList">
+                                        @if(Model.BasketItems != null)
+                                        {
+                                                        @foreach (var item in @Model.BasketItems)
+                                  {
+                                              <li>
+
                                                 <div class="single-cart-item d-flex">
                                                     <div class="cart-item-thumb">
-                                                        <a href="single-product.html"><img src="~/images/product-cart/cart-1.jpg" alt="product"></a>
-                                                        <span class="product-quantity">1x</span>
+                                                        <a href="single-product.html"><img src="~/images/@item.ImgUrl" alt="product"></a>
+                                                        <span class="product-quantity">@item.Count</span>
                                                     </div>
+
                                                     <div class="cart-item-content media-body">
-                                                        <h5 class="product-name"><a href="single-product.html">New Balance Fresh Foam LAZR</a></h5>
-                                                        <span class="product-price">€18.90</span>
+                                                        <h5 class="product-name"><a href="single-product.html">@item.Product.Name</a></h5>
+                                                        <span class="product-price">€@item.Price</span>
                                                         <span class="product-color"><strong>Color:</strong> White</span>
                                                         <a href="#" class="product-close"><i class="fal fa-times"></i></a>
                                                     </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="single-cart-item d-flex">
-                                                    <div class="cart-item-thumb">
-                                                        <a href="single-product.html"><img src="~/images/product-cart/cart-2.jpg" alt="product"></a>
-                                                        <span class="product-quantity">3x</span>
-                                                    </div>
-                                                    <div class="cart-item-content media-body">
-                                                        <h5 class="product-name"><a href="single-product.html">New Balance Fresh Foam LAZR</a></h5>
-                                                        <span class="product-price">€18.90</span>
-                                                        <span class="product-color"><strong>Color:</strong> White</span>
-                                                        <a href="#" class="product-close"><i class="fal fa-times"></i></a>
-                                                    </div>
-                                                </div>
-                                            </li>
+
+                                                </div>  
+                                                
+                                             </li>
+                                                 
+                                  }
+                                        }
+                            
+                                     
                                         </ul>
                                         <div class="price_content">
                                             <div class="cart-subtotals">
@@ -351,50 +350,8 @@
                                             <li><a asp-controller="account" asp-action="registr" >Register</a></li>
                                         </ul>
                                     </li>
-                                    <li class="position-static"><a href="#">Shop <i class="fal fa-chevron-down"></i></a>
-                                        <ul class="mega-sub-menu d-flex flex-wrap">
-                                            <li>
-                                                <a class="menu-title" href="#">Shop Grid</a>
-                                                <ul class="submenu-item">
-                                                    <li><a href="shop-3-column.html">Shop Grid Column 3</a></li>
-                                                    <li><a href="shop-4-column.html">Shop Grid Column 4</a></li>
-                                                    <li><a href="shop-left-sidebar.html">Shop Grid left sidebar</a></li>
-                                                    <li><a href="shop-right-sidebar.html">Shop Grid Right sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a class="menu-title" href="#">Shop List</a>
-                                                <ul class="submenu-item">
-                                                    <li><a href="shop-list.html">Shop List</a></li>
-                                                    <li><a href="shop-list-left-sidebar.html">Shop List Left sidebar</a></li>
-                                                    <li><a href="shop-list-right-sidebar.html">Shop List Right sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a class="menu-title" href="#">Shop Single</a>
-                                                <ul class="submenu-item">
-                                                    <li><a href="single-product.html">Shop Single</a></li>
-                                                    <li><a href="single-product-variable.html">Shop Variable</a></li>
-                                                    <li><a href="single-product-affiliate.html">Shop Affiliate</a></li>
-                                                    <li><a href="single-product-group.html">Shop Group</a></li>
-                                                    <li><a href="single-product-tabstyle2.html">Shop Tabs 2</a></li>
-                                                    <li><a href="single-product-tabstyle3.html">Shop Tabs 3</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a class="menu-title" href="#">Shop Single</a>
-                                                <ul class="submenu-item">
-                                                    <li><a href="single-product-slider.html">Shop Slider</a></li>
-                                                    <li><a href="single-product-gallery-left.html">Shop Gallery Left sidebar</a></li>
-                                                    <li><a href="single-product-gallery-right.html">Shop Gallery Right sidebar</a></li>
-                                                    <li><a href="single-product-sticky-left.html">Shop Sticky Left sidebar</a></li>
-                                                    <li><a href="single-product-sticky-right.html">Shop Sticky Right sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="custom-banner">
-                                                <a href="shop-4-column.html"><img src="assets/images/custom_banner.jpg" alt="" class="img-responsive"></a>
-                                            </li>
-                                        </ul>
+                                    <li class="position-static"><a asp-controller="shop" asp-action="index">Shop <i class="fal fa-chevron-down"></i></a>
+                                 
                                     </li>
                                     <li class="position-static">
                                         <a href="#">Custom Menu <i class="fal fa-chevron-down"></i></a>
