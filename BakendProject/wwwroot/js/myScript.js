@@ -130,7 +130,7 @@ const plusBtn = document.querySelectorAll(".plusBtn")
 const sum = document.querySelectorAll(".total-amount");
 const minusBtn = document.querySelectorAll(".minusBtn");
 const removeBtn = document.querySelectorAll(".removeBtn");
-console.log(sum)
+
 removeBtn.forEach(item => {
     let total = 0;
     let myCount = 0;
@@ -246,9 +246,18 @@ plusBtn.forEach(item => {
     })
 })
 
+//-------------------Order baw verecek ehtiyatli olun --------------------//
 
 
 
+const saleBtn = document.querySelector(".sale")
 
 
+const handleSale = async () =>
+{
+    
+
+}
+
+saleBtn.addEventListener("click",handleSale)
 

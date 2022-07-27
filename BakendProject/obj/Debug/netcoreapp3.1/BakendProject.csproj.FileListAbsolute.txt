@@ -280,3 +280,4 @@ C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\D
 C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Account\Registr.cshtml.g.cs
 C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_BasketPartial.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Sale\Index.cshtml.g.cs
