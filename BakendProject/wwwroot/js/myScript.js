@@ -82,7 +82,7 @@ btnSubProduct.forEach(item => {
 const basketItem = document.querySelectorAll(".basketItem")
 const newUl = document.querySelector(".newUl");
 const count = document.querySelector(".count");
-const total = document.querySelector(".total");
+const totalProduct = document.querySelector(".total");
 const arr = [];
 basketItem.forEach(btn => {
 
@@ -111,7 +111,7 @@ basketItem.forEach(btn => {
                                              </li>
 
 `
-        total.innerHTML = "$" + data.total
+        totalProduct.innerHTML = "$" + data.total
        
         if (Object.keys(data).length !== 0) {
             var newDoc = new DOMParser().parseFromString(div, "text/html");
@@ -130,15 +130,23 @@ const plusBtn = document.querySelectorAll(".plusBtn")
 const sum = document.querySelectorAll(".total-amount");
 const minusBtn = document.querySelectorAll(".minusBtn");
 const removeBtn = document.querySelectorAll(".removeBtn");
-
+console.log(sum)
 removeBtn.forEach(item => {
-
+    let total = 0;
+    let myCount = 0;
     async function handleRemoveElement(ev) {
         ev.preventDefault();
         const removeId = item.getAttribute("data-id")
         try {
             const { data } = await axios.get("/basket/remove?id=" + removeId)
             this.parentElement.parentElement.parentElement.remove();
+            data.forEach(item => {
+              
+                total += item.sum
+                myCount = item.count
+            })
+            count.innerHTML = myCount
+            totalProduct.innerHTML = "$" + total
         } catch (err) {
             alert(err)
         }
@@ -149,34 +157,46 @@ removeBtn.forEach(item => {
 })
 
 minusBtn.forEach(item => {
-
+   
 
     const dataIdProduct = item.getAttribute("data-id")
 
     item.addEventListener("click", async () => {
         const { data } = await axios.get("/basket/minus?id=" + dataIdProduct)
-
-
+        let total = 0;
         countProduct.forEach(value => {
             const productId = value.getAttribute("data-id")
+
             if (productId == dataIdProduct) {
 
-                if (data.count >= 1) {
-                    value.value = data.count
-                    sum.forEach(s => {
-                        const sumId = s.getAttribute("data-id")
-                       
-                        if (sumId == dataIdProduct) {
-                            s.innerHTML = "€" + data.sum
-                        }
-                    })
+                
+                data.forEach(item => {
 
-                } 
+                    if (item.isExistCount >= 1) {
+                        value.value = item.isExistCount
 
+                  
+                        total += item.sum
+                        sum.forEach(s => {
+                            const sumId = s.getAttribute("data-id")
 
+                            if (sumId == dataIdProduct) {
+                                s.innerHTML = "€" + item.isExistSum
+                            }
+                           
+                            totalProduct.innerHTML = "$" + total
+                        })
+
+                    } 
+
+                })
+       
             }
 
+
         })
+
+       
 
     })
 
@@ -184,30 +204,36 @@ minusBtn.forEach(item => {
 })
 
 plusBtn.forEach(item => {
-    
+  
     const dataIdProduct = item.getAttribute("data-id")
     item.addEventListener("click", async () => {
+        let total = 0
         const { data } = await axios.get("/basket/plus?id=" + dataIdProduct)
 
         
         countProduct.forEach(value => {
             const productId = value.getAttribute("data-id")
             if (productId == dataIdProduct) {
-           
-                if (data.count <= data.productCount) {
-                    value.value = data.count
-                    sum.forEach(s => {
-                        const sumId = s.getAttribute("data-id")
-                        console.log(data)
-                        console.log(s)
-                        if (sumId == dataIdProduct) {
-                            s.innerHTML = "€" + data.sum
-                        }
-                    })
-                   
-                } else {
-                    alert("olmaz")
-                }
+
+                data.forEach(item => {
+                    
+                    if (item.isExistCount <= item.productCount) {
+                        value.value = item.isExistCount
+                        total += item.sum
+                        sum.forEach(s => {
+                            const sumId = s.getAttribute("data-id")
+                         
+                            if (sumId == dataIdProduct) {
+                                s.innerHTML = "€" + item.isExistSum
+                            }
+                            totalProduct.innerHTML = "$" + total
+                        })
+
+                    } else {
+                        alert("olmaz")
+                    }
+
+                })
 
 
             }

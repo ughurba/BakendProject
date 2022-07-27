@@ -110,6 +110,7 @@ namespace BakendProject.Controllers
         public async Task<IActionResult> Plus(int? id)
         {
             Product dbProduct = _context.Products.Include(p => p.ProductImages).FirstOrDefault(p => p.Id == id);
+            List<object> frontBaskets = new List<object>();
 
 
             var obj = new object();
@@ -124,35 +125,44 @@ namespace BakendProject.Controllers
                     {
                         isExist.Count++;
                         isExist.Sum = isExist.Count * isExist.Price;
-                        obj = new
-                        {
-                            Sum = isExist.Sum,
-                            Count = isExist.Count,
-                            ProductCount = isExist.Product.StockCount
+                     
+                        await _context.SaveChangesAsync();
 
-                        };
+                        List<BasketItem> basketItems = _context.BasketItems.Where(b => b.AppUserId == user.Id).ToList();
+
+
+                        foreach (var item in basketItems)
+                        {
+
+                            obj = new
+                            {
+                                isExistCount = isExist.Count,
+                                isExistSum = isExist.Sum,
+                                ProductCount = isExist.Product.StockCount,
+                                sum = item.Sum
+
+                            };
+                            frontBaskets.Add(obj);
+                        }
                     }
                 }
-                await _context.SaveChangesAsync();
-                List<BasketItem> basketItems = _context.BasketItems.Where(b => b.AppUserId == user.Id).ToList();
-
-
-
+     
+   
             }
 
-            return Json(obj);
+            return Json(frontBaskets);
         }
         public async Task<IActionResult> Minus(int? id)
         {
 
             Product dbProduct = _context.Products.Include(p => p.ProductImages).FirstOrDefault(p => p.Id == id);
-
+            List<object> frontBaskets = new List<object>();
 
             var obj = new object();
             if (User.Identity.IsAuthenticated)
             {
                 AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-
+                
                 BasketItem isExist = _context.BasketItems.Include(p => p.Product).FirstOrDefault(b => b.ProductId == dbProduct.Id && b.AppUserId == user.Id);
                 if (isExist != null)
                 {
@@ -160,40 +170,79 @@ namespace BakendProject.Controllers
                     {
                         isExist.Count--;
                         isExist.Sum = isExist.Count * isExist.Price;
-                        obj = new
+                       
+                        await _context.SaveChangesAsync();
+                        List<BasketItem> basketItems = _context.BasketItems.Where(b => b.AppUserId == user.Id).ToList();
+                        
+                       
+                        foreach (var item in basketItems)
                         {
-                            Sum = isExist.Sum,
-                            Count = isExist.Count,
-                            ProductCount = isExist.Product.StockCount
-                        };
+
+                            obj = new
+                            {
+                                isExistCount = isExist.Count,
+                                isExistSum = isExist.Sum,
+                                ProductCount= isExist.Product.StockCount,
+                                sum = item.Sum
+
+                            };
+                            frontBaskets.Add(obj);
+                        }
+                       
+
+
                     }
                 }
-                await _context.SaveChangesAsync();
+              
             }
 
-            return Json(obj);
+            return Ok(frontBaskets);
 
         }
 
         public async Task<IActionResult> Remove(int? id)
         {
-            Product dbProduct = _context.Products.Include(p => p.ProductImages).FirstOrDefault(p => p.Id == id);
-
-
-
-            if (User.Identity.IsAuthenticated)
+            try
             {
-                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-
-                BasketItem isExist = _context.BasketItems.Include(p => p.Product).FirstOrDefault(b => b.ProductId == dbProduct.Id && b.AppUserId == user.Id);
-                if (isExist != null)
+               
+                Product dbProduct = _context.Products.Include(p => p.ProductImages).FirstOrDefault(p => p.Id == id);
+                if (User.Identity.IsAuthenticated)
                 {
-                    _context.BasketItems.Remove(isExist);
+                    AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+                    BasketItem isExist = _context.BasketItems.Include(p => p.Product).FirstOrDefault(b => b.ProductId == dbProduct.Id && b.AppUserId == user.Id);
+                    if (isExist != null)
+                    {
+                        _context.BasketItems.Remove(isExist);
+
+                    }
+                    await _context.SaveChangesAsync();
+                    List<BasketItem> basketItems = _context.BasketItems.Where(b => b.AppUserId == user.Id).ToList();
+                    List<object> frontBaskets = new List<object>();
+                    var obj = new object();
+                    foreach (var item in basketItems)
+                    {
+
+                        obj = new
+                        {
+                            Count = basketItems.Count(),
+                            Sum = item.Sum,
+
+                        };
+                        frontBaskets.Add(obj);
+                    }
+                    return Ok(frontBaskets);
 
                 }
-                await _context.SaveChangesAsync();
+
+                return Ok();
             }
-            return Ok();
+            catch
+            {
+                return BadRequest();
+            }
+         
+
         }
     }
 }
