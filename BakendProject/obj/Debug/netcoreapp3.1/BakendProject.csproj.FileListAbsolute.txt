@@ -281,3 +281,15 @@ C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\D
 C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_BasketPartial.cshtml.g.cs
 C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Views\Sale\Index.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Category\Create.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Category\Detail.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Category\Index.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Category\Update.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Dashboard\Index.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Create.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Detail.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Index.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Update.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Shared\_AdminLayout.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\_ViewImports.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\_ViewStart.cshtml.g.cs

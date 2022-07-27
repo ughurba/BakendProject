@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BakendProject.Models
 {
@@ -23,7 +25,8 @@ namespace BakendProject.Models
         public Nullable<DateTime> DeletedAt { get; set; }
         public Nullable<DateTime> UptadetAt { get; set; }
 
-
+        [NotMapped]
+        public IFormFile Photo { get; set; }
 
 
         public int CategoryId { get; set; }
