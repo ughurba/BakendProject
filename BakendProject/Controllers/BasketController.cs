@@ -29,8 +29,12 @@ namespace BakendProject.Controllers
                 List<BasketItem> baskets = _context.BasketItems
                     .Include(b => b.Product)
                     .Include(u => u.AppUser)
-                    .Where(b => b.AppUserId == user.Id)
+                    .Where(b => b.AppUserId == user.Id && !b.Product.IsDeleted)
                     .ToList();
+                if(baskets.Count() == 0)
+                {
+                    return RedirectToAction("Index","shop");
+                }
                 return View(baskets);
             }
             else

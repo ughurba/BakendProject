@@ -21,9 +21,10 @@
                   </div>
 
                     <div class="form-group">
-                      <label asp-for="ParentId"></label>
-                      <textarea asp-for="ParentId"  class="form-control"  rows="4"></textarea>
-                   <span  asp-validation-for="ParentId"> </span>
+                       <div>Parent-dir</div>
+                  <select  asp-for="ParentId" class="form-select" asp-items="@ViewBag.Categories" aria-label="Default select example">
+                   <option  selected>Open this select menu</option>
+                  </select>
                   </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
               <a asp-action="index" class="btn btn-dark">  Go back  </a>

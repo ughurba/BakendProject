@@ -21,8 +21,9 @@
                           <th>No</th>
                           <th>Image</th>
                           <th>Name</th>
-                      <th>Category</th>
-                          <th>Settings</th>
+                      <th>Price</th>
+                       <th>Count</th>
+                          <th>Category</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -42,8 +43,10 @@
                          }
                    
                           <td>@item.Name</td>
-                          <td>@item.Price</td>
+                          <td>$@item.Price</td>
+                              <td>@item.StockCount</td>
                              <td>@item.Category.Name</td>
+                          
                           <td>
                           <a class="btn btn-warning" asp-action="update" asp-route-id="@item.Id"> Update </a>
                             <a class="btn btn-primary" asp-action="detail" asp-route-id="@item.Id">  Detail</a>

@@ -293,3 +293,8 @@ C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\D
 C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Shared\_AdminLayout.cshtml.g.cs
 C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\_ViewImports.cshtml.g.cs
 C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\_ViewStart.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Role\Index.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Role\Create.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\User\Index.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\User\Update.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\User\Detail.cshtml.g.cs

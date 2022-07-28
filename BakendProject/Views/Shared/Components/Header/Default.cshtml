@@ -276,7 +276,9 @@
                                        <li class="menu-item">
                                         <a href="#">@item.Name <i class="fal fa-chevron-right"></i></a>
                                         <ul class="sub-menu flex-wrap">
-                                         @foreach (var child in item.Children)
+                                            @if(item.Children != null)
+                                            {
+                                                  @foreach (var child in item.Children)
                                                    {
                                             <li>
                                                 <a href="#"><span>Hot Categories</span></a>
@@ -287,6 +289,8 @@
                                                 </ul>
                                             </li>
                                             }
+                                            }
+                                          
                                            
                       
                                             <li>

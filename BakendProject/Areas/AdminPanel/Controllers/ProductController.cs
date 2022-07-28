@@ -123,6 +123,7 @@ namespace BakendProject.Areas.AdminPanel.Controllers
         }
         public  IActionResult Delete(int? id)
         {
+            List<BasketItem> basketItems = _context.BasketItems.Include(b=>b.Product).Where(b=>b.ProductId == id).ToList();
             Product dbproduct =  _context.Products.Include(p=>p.ProductImages).FirstOrDefault(p=>p.Id==id);
             foreach (var item in dbproduct.ProductImages)
             {
@@ -132,7 +133,10 @@ namespace BakendProject.Areas.AdminPanel.Controllers
                     Helper.Helper.DeleteImage(path);
             }
 
-          
+          foreach (var item in basketItems)
+            {
+                item.Product.IsDeleted = true;
+            }
        dbproduct.IsDeleted = true;
             _context.SaveChanges();
             return RedirectToAction("index");
@@ -181,6 +185,7 @@ namespace BakendProject.Areas.AdminPanel.Controllers
             products.Price = product.Price;
             products.DiscountPrice = product.DiscountPrice;
             products.Desc=product.Desc;
+            products.StockCount = product.StockCount;
             products.InStock = product.InStock;
             products.UptadetAt = product.UptadetAt;
 

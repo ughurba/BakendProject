@@ -246,18 +246,4 @@ plusBtn.forEach(item => {
     })
 })
 
-//-------------------Order baw verecek ehtiyatli olun --------------------//
-
-
-
-const saleBtn = document.querySelector(".sale")
-
-
-const handleSale = async () =>
-{
-    
-
-}
-
-saleBtn.addEventListener("click",handleSale)
 
