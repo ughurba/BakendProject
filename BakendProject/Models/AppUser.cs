@@ -10,6 +10,7 @@ namespace BakendProject.Models
 
             public List<Order> Orders { get; set; }
             public List<BasketItem> BasketItems { get; set; }
-      
+              public List <Comment> comments{ get; set; }
+
     }
 }

@@ -24,5 +24,6 @@ namespace BakendProject.DAL
         public DbSet<ModalProduct> modalProducts{ get; set; }
         public DbSet<Blog>  Blogs{ get; set; }
         public DbSet<Subscribe> subscribes { get; set; }
+        public DbSet<Comment> comments { get; set; }
     }
 }

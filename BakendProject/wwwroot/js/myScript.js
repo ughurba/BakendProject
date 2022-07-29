@@ -57,9 +57,11 @@ const detailContent = document.querySelector(".detail-content")
             const { data} = await axios.get("/shop/detailtwo?id=" + dataIdBtnSub)
             
             detailContent.innerHTML = data
+
         }
 
         item.addEventListener("click", handleShowDetail)
+
     })
 const tabContent = document.querySelector(".tab-content")
 btnSubProduct.forEach(item => {
@@ -69,7 +71,7 @@ btnSubProduct.forEach(item => {
         const dataIdBtnSub = item.getAttribute("data-id")
 
         const { data } = await axios.get("/shop/DescComment?id=" + dataIdBtnSub)
-
+        console.log(data)
         tabContent.innerHTML = data
     }
 
@@ -246,4 +248,6 @@ plusBtn.forEach(item => {
     })
 })
 
+
+///-------------------------------------////
 

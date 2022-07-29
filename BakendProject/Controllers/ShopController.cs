@@ -1,6 +1,7 @@
 ﻿using BakendProject.DAL;
 using BakendProject.Models;
 using BakendProject.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,16 +14,18 @@ namespace BakendProject.Controllers
     public class ShopController : Controller
     {
         private readonly AppDbContext _context;
-        public ShopController(AppDbContext context)
+        private readonly UserManager<AppUser> _userManager;
+        public ShopController(AppDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
        
         public IActionResult Index(int page = 1, int take = 5)
         {
            
-            List<Product> products = _context.Products.Include(p=>p.ProductImages).Skip((page - 1) * take).Take(take).ToList();
+            List<Product> products = _context.Products.Include(p => p.ProductImages).Where(p=>p.IsDeleted==false).Skip((page - 1) * take).Take(take).ToList();
             PaginationVM<Product> pagination = new PaginationVM<Product>(products, PageCount(take), page);
             ViewBag.Pagination = pagination.PageCount;
             ViewBag.CurrentPage = pagination.CurrentPage;
@@ -82,17 +85,42 @@ namespace BakendProject.Controllers
         public IActionResult Detail(int id)
         {
 
-            List<Product> products = _context.Products.Include(p => p.ProductImages).ToList();
+            List<Product> products = _context.Products.Include(p => p.ProductImages).Where(p=>p.IsDeleted == false).ToList();
             Product dbProduct = _context.Products.Include(p => p.ProductImages).Include(p => p.Brand).FirstOrDefault(p => p.Id == id);
+            List<Comment> comments = _context.comments.Where(c=>c.ProductId == dbProduct.Id).ToList();
             DetailVM detail = new DetailVM();
             detail.Products = products;
             detail.Product = dbProduct;
+            detail.comments = comments;
             ViewBag.Description = dbProduct.Desc;
             return View(detail);
 
-
-
         }
+        //[HttpPost]
+        //public async Task <IActionResult> Detail([FromForm] string comment,int id)
+        //{
+        //    Product product = _context.Products.FirstOrDefault(p => p.Id == id);
+        //    if (User.Identity.IsAuthenticated)
+        //    {
+        //        AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            
+
+        //        Comment com = new Comment();
+        //        com.Desc = comment;
+        //        com.AppUserId = user.Id;
+        //        com.appUser = user;
+        //        com.product = product;
+        //        com.ProductId = product.Id;
+        //        com.CreatedAt = DateTime.Now;
+        //        await _context.comments.AddAsync(com);
+
+        //    }
+
+        //    List<Comment> comments = _context.comments.Where(c => c.ProductId == product.Id).ToList();
+
+        //    return PartialView("_CommentPartial",comments);
+        //}
+      
 
         public IActionResult DetailTwo(int? id)
         {

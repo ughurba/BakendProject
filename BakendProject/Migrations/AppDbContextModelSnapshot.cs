@@ -260,6 +260,34 @@ namespace BakendProject.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("BakendProject.Models.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("comments");
+                });
+
             modelBuilder.Entity("BakendProject.Models.ModalProduct", b =>
                 {
                     b.Property<int>("Id")
@@ -677,6 +705,19 @@ namespace BakendProject.Migrations
                     b.HasOne("BakendProject.Models.Category", "Parent")
                         .WithMany("Children")
                         .HasForeignKey("ParentId");
+                });
+
+            modelBuilder.Entity("BakendProject.Models.Comment", b =>
+                {
+                    b.HasOne("BakendProject.Models.AppUser", "appUser")
+                        .WithMany("comments")
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("BakendProject.Models.Product", "product")
+                        .WithMany("comments")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("BakendProject.Models.Order", b =>

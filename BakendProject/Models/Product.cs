@@ -39,5 +39,6 @@ namespace BakendProject.Models
         public List<ProductImage> ProductImages { get; set; }
         public List<OrderItem> OrderItems { get; set; }
         public List<BasketItem> BasketItems { get; set; }
+        public List <Comment> comments { get; set; }
     }
 }
