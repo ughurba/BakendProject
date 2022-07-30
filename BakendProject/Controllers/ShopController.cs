@@ -4,6 +4,7 @@ using BakendProject.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +16,12 @@ namespace BakendProject.Controllers
     {
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
-        public ShopController(AppDbContext context, UserManager<AppUser> userManager)
+  
+        public ShopController(AppDbContext context, UserManager<AppUser> userManager )
         {
             _context = context;
             _userManager = userManager;
+         
         }
 
        
@@ -29,6 +32,7 @@ namespace BakendProject.Controllers
             PaginationVM<Product> pagination = new PaginationVM<Product>(products, PageCount(take), page);
             ViewBag.Pagination = pagination.PageCount;
             ViewBag.CurrentPage = pagination.CurrentPage;
+  
             return View(products);
         }
        

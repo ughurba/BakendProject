@@ -17,13 +17,15 @@ namespace BakendProject.Areas.AdminPanel.Controllers
     [Area("AdminPanel")]
     public class ProductController : Controller
     {
+        private readonly Service service;
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
 
-        public ProductController(AppDbContext context, IWebHostEnvironment env)
+        public ProductController(AppDbContext context, IWebHostEnvironment env, Service service)
         {
             _context = context;
             _env = env;
+            this.service = service;
         }
 
         public IActionResult Index(int page = 1, int take = 5)
@@ -32,7 +34,7 @@ namespace BakendProject.Areas.AdminPanel.Controllers
             List<Product> products = _context.Products.Include(p=>p.ProductImages).Include(p => p.Category).Skip((page - 1) * take).Where(p=>p.IsDeleted==false).Take(take).ToList();
 
             PaginationVM<Product> paginationVM = new PaginationVM<Product>(products, PageCount(take), page);
-
+          
 
             return View(paginationVM);
 
@@ -98,14 +100,15 @@ namespace BakendProject.Areas.AdminPanel.Controllers
                 SpecialProduct=false,
                 BrandId=product.BrandId,
                 CreatedAt=DateTime.Now
-
-
-
-              
-
             };
 
             List<ProductImage> productImages = new List<ProductImage>();
+            List<Subscribe> subscribes = _context.subscribes.ToList();
+
+            foreach (var item in subscribes)
+            {
+                service.SendEmailDefault(item.Email);
+            }
             ProductImage newProductimages = new ProductImage
             {
 
@@ -117,7 +120,7 @@ namespace BakendProject.Areas.AdminPanel.Controllers
             newProduct.ProductImages=productImages;
             await _context.Products.AddAsync(newProduct);
             _context.SaveChanges();
-
+          
 
             return RedirectToAction("Index");
         }

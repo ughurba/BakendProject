@@ -28,6 +28,7 @@ namespace BakendProject
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<Service>();
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(option =>
             {

@@ -298,3 +298,6 @@ C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\D
 C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\User\Index.cshtml.g.cs
 C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\User\Update.cshtml.g.cs
 C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\User\Detail.cshtml.g.cs
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\bin\Debug\netcoreapp3.1\MailKit.dll
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\bin\Debug\netcoreapp3.1\MimeKit.dll
+C:\Users\Clean__Laptop\Desktop\BakendProjectV2\BakendProject\BakendProject\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
