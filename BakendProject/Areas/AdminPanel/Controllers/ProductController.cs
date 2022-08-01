@@ -34,7 +34,7 @@ namespace BakendProject.Areas.AdminPanel.Controllers
             List<Product> products = _context.Products.Include(p=>p.ProductImages).Include(p => p.Category).Skip((page - 1) * take).Where(p=>p.IsDeleted==false).Take(take).ToList();
 
             PaginationVM<Product> paginationVM = new PaginationVM<Product>(products, PageCount(take), page);
-          
+            
 
             return View(paginationVM);
 

@@ -23,7 +23,7 @@ namespace BakendProject
             {
                 using (MailMessage mail = new MailMessage())
                 {
-                    mail.From = new MailAddress("orxan11f11@gmail.com", "myCompany");
+                    mail.From = new MailAddress("ughurba@code.edu.az", "myCompany");
                     mail.To.Add(email);
                     mail.Subject = "Product";
                     mail.Body = "<h1>Product add olundu</h1>";
